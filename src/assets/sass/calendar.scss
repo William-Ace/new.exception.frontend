@@ -1,0 +1,15 @@
+.eventForm {
+  display: block;
+  -webkit-animation: signInFormInAnimation .25s ease-out;
+  animation: signInFormInAnimation .25s ease-out;
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+
+    &__delete {
+      margin-right: 10px !important;
+    }
+  }
+}

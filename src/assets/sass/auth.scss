@@ -1,0 +1,219 @@
+.mainBkg {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.contentWrap {
+  width: 50%;
+  min-width: 420px;
+  max-width: 936px;
+  height: auto;
+  display: flex;
+  position: relative;
+}
+
+.leftWrap, .rightWrap {
+  width: 50%;
+  height: auto;
+  min-height: 50vh;
+  transition: all .25s ease-out;
+}
+
+.leftWrap {
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  background-color: #252525;
+  border-radius: 4px 0 0 4px;
+}
+
+.rightWrap {
+  position: relative;
+  background-color: #fff;
+  border-radius: 0 4px 4px 0;
+
+  .topHld {
+    margin: 0 auto;
+    max-width: 400px;
+    padding: 6vh 10% 4vh;
+
+    .actionTitle {
+      text-align: center;
+      margin-bottom: 2vh;
+
+      .proText {
+        margin-top: 1vh;
+        -webkit-animation: TextOutAnimation .25s ease-out;
+        animation: TextOutAnimation .25s ease-out;
+        opacity: 1;
+      }
+      
+      img {
+        width: 150px;
+        max-width: 180px;
+        height: auto;
+      }
+    }
+  }
+
+  .btHld {
+    padding: 2vh 8%;
+    background-color: rgba(37,37,37,.9);
+    border-radius: 0 0 4px 0;
+
+    .innerNewText {
+      -webkit-animation: TextOutAnimation .25s ease-out;
+      animation: TextOutAnimation .25s ease-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      grid-gap: 15px;
+      gap: 15px;
+
+      span {
+        color: hsla(0,0%,100%,.87);
+        font-size: 13px;
+      }
+
+      div {
+        span {
+          transition: all .4s ease-out;
+          color: #4285f4;
+          
+          &:hover {
+            cursor: pointer;
+            color: #6ea2f8;
+          }
+        }
+      }
+    }
+  }
+}
+
+.imgCont {
+  width: 250px;
+  min-width: 200px;
+  margin-bottom: 20vh;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.textHld {
+  width: 72%;
+  color: #fff;
+  position: absolute;
+  text-align: center;
+  bottom: 13vh;
+  left: 13%;
+}
+
+.majorCap {
+  font-size: 16px;
+  margin-bottom: 2vh;
+}
+
+.minorText {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.signInForm {
+  display: block;
+  -webkit-animation: signInFormInAnimation .25s ease-out;
+  animation: signInFormInAnimation .25s ease-out;
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+  }
+}
+
+.passRecoveryForm {
+  &__forgotPassword {
+    cursor: pointer;
+    margin-left: 20px;
+    color: rgb(66, 133, 244);
+  }
+}
+
+@media (max-width: 1415px){
+  .contentWrap {
+    width: 67%;
+  }
+}
+
+@media (max-width: 1055px) {
+  .contentWrap {
+    height: 100%;
+    display: flex;
+    position: relative;
+    justify-content: space-evenly;
+  }
+
+  .leftWrap {
+    display: none;
+  }
+
+  .rightWrap {
+    width: 100%;
+
+    .btHld {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      bottom: env(safe-area-inset-bottom);
+      padding: 2vh 0;
+      bottom: 0;
+      left: 0;
+      border-radius: 0;
+    }
+  }
+
+  .vertical-centre {
+    width: 80%;
+    max-width: 400px;
+    position: absolute;
+    -webkit-transform: translate(-50%,-47%);
+    transform: translate(-50%,-47%);
+    left: 50%;
+    top: 50%;
+  }
+}
+
+@keyframes signInFormInAnimation{
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20%);
+    transform: translateY(-20%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes TextOutAnimation {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
