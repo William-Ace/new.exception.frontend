@@ -45,7 +45,8 @@ const BookingsProvider = ({ children }: BookingsProviderPropsType) => {
       value={{
         bookings,
         getBookings
-      }}>
+      }}
+    >
       {children}
     </BookingsContext.Provider>
   );

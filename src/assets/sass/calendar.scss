@@ -1,7 +1,7 @@
 .eventForm {
   display: block;
-  -webkit-animation: signInFormInAnimation .25s ease-out;
-  animation: signInFormInAnimation .25s ease-out;
+  -webkit-animation: signInFormInAnimation 0.25s ease-out;
+  animation: signInFormInAnimation 0.25s ease-out;
 
   &__buttons {
     display: flex;

@@ -33,7 +33,8 @@ const ModalProvider = ({ children }: ModalProviderPropsType) => {
         showModal,
         hideModal,
         modalData
-      }}>
+      }}
+    >
       {children}
     </ModalContext.Provider>
   );

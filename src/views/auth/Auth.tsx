@@ -27,7 +27,8 @@ const Auth = () => {
       className="mainBkg"
       style={{
         backgroundImage: `url(${require('../../assets/images/background.ed92fc21.jpg')})`
-      }}>
+      }}
+    >
       <Box className="contentWrap">
         <Box className="leftWrap">
           <Box className="imgCont">
@@ -70,7 +71,8 @@ const Auth = () => {
                     sx={{
                       mt: 8,
                       mb: 8
-                    }}>
+                    }}
+                  >
                     <Typography variant="body1" gutterBottom>
                       What's Next?
                     </Typography>
@@ -90,7 +92,8 @@ const Auth = () => {
                       sx={{
                         width: '100%',
                         mb: 2
-                      }}>
+                      }}
+                    >
                       SIGN IN WITH GOOGLE
                     </Button>
                     <Button
@@ -100,7 +103,8 @@ const Auth = () => {
                       sx={{
                         width: '100%',
                         mb: 2
-                      }}>
+                      }}
+                    >
                       SIGN IN WITH LINKEDIN
                     </Button>
                     <Button
@@ -111,7 +115,8 @@ const Auth = () => {
                       sx={{
                         width: '100%',
                         mb: 2
-                      }}>
+                      }}
+                    >
                       SIGN IN WITH MICROSOFT
                     </Button>
                     <Divider sx={{ color: 'rgb(102, 102, 102)' }}>or use business email</Divider>
