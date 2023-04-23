@@ -9,14 +9,13 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import AuthRoute from './components/auth/Route/LogRoute';
 import PrivateRoute from './components/auth/Route/HomeRoute';
 import Loader from './components/StyleLoader';
-import { BookingsProvider } from './context/bookings';
 import { FirebaseProvider } from './firebase';
 import { ModalProvider } from './context/modal';
 import theme from './themes/theme';
 import './assets/sass/index.scss';
 
 const Auth = React.lazy(() => import('./views/auth/Auth'));
-const Home = React.lazy(() => import('./views/app/Home'));
+const Home = React.lazy(() => import('./views/app/calendar'));
 
 function App() {
   return (
@@ -24,33 +23,31 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <FirebaseProvider>
-          <BookingsProvider>
-            <ModalProvider>
-              <BrowserRouter>
-                <Suspense fallback={<Loader />}>
-                  <Routes>
-                    <Route
-                      path="/"
-                      element={
-                        <AuthRoute>
-                          <Auth />
-                        </AuthRoute>
-                      }
-                    />
-                    <Route
-                      path="/home"
-                      element={
-                        <PrivateRoute>
-                          <Home />
-                        </PrivateRoute>
-                      }
-                    />
-                  </Routes>
-                </Suspense>
-              </BrowserRouter>
-              <ToastContainer />
-            </ModalProvider>
-          </BookingsProvider>
+          <ModalProvider>
+            <BrowserRouter>
+              <Suspense fallback={<Loader />}>
+                <Routes>
+                  <Route
+                    path="/"
+                    element={
+                      <AuthRoute>
+                        <Auth />
+                      </AuthRoute>
+                    }
+                  />
+                  <Route
+                    path="/home"
+                    element={
+                      <PrivateRoute>
+                        <Home />
+                      </PrivateRoute>
+                    }
+                  />
+                </Routes>
+              </Suspense>
+            </BrowserRouter>
+            <ToastContainer />
+          </ModalProvider>
         </FirebaseProvider>
       </ThemeProvider>
     </IntlProvider>

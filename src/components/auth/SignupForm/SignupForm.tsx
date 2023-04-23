@@ -27,7 +27,9 @@ const SignupForm = () => {
     defaultValues: initialValues
   });
 
-  const onFormSubmit = useCallback(() => {}, []);
+  const onFormSubmit = useCallback(() => {
+    console.log('Sign up');
+  }, []);
 
   return (
     <form onSubmit={handleSubmit(onFormSubmit)} className="signInForm">

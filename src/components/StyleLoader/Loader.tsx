@@ -57,7 +57,7 @@ interface LoaderProps {
   logo?: boolean;
 }
 
-const Loader: React.FC<LoaderProps> = ({ title, logo }) => {
+const Loader: React.FC<LoaderProps> = ({ logo }) => {
   return (
     <StyledLoader>
       <div className="loader-wraper">

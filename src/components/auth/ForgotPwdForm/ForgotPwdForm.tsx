@@ -21,7 +21,9 @@ const ForgotPwdForm = () => {
     defaultValues: initialValues
   });
 
-  const onFormSubmit = useCallback(() => {}, []);
+  const onFormSubmit = useCallback(() => {
+    console.log('Recover Password');
+  }, []);
 
   return (
     <form onSubmit={handleSubmit(onFormSubmit)} className="signInForm">
