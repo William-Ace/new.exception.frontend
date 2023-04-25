@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.7.12",
-    "@bryntum/calendar": "npm:@bryntum/calendar-trial@^5.3.3",
+    "@bryntum/calendar": "5.3.3",
     "@bryntum/calendar-react": "^5.3.3",
     "@bryntum/demo-resources": "^1.2.0",
     "@emotion/react": "^11.10.5",
