@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Box, Button } from '@mui/material';
 import * as yup from 'yup';
 
-import FormInput from '../../Input/FormInput';
+import FormInput from '../../input/form.input';
 
 import { useFirebase } from '../../../firebase';
 
@@ -71,7 +71,12 @@ const SignUpForm = () => {
         register={register}
       />
       <Box className="signInForm__buttons">
-        <Button color="primary" type="submit" variant="contained" onClick={onFormSubmit}>
+        <Button
+          color="primary"
+          type="submit"
+          variant="contained"
+          onClick={onFormSubmit}
+          style={{ backgroundColor: '#004080', color: 'white' }}>
           SIGN UP
         </Button>
       </Box>

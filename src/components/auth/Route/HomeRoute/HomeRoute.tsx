@@ -1,7 +1,7 @@
 import { Navigate, useLocation } from 'react-router-dom';
 
 import { useFirebase } from '../../../../firebase';
-import Loader from '../../../StyleLoader';
+import Loader from '../../../spinner';
 
 const AuthRoute = ({ children }: { children: React.ReactNode }) => {
   const { user, isFetchingUser } = useFirebase();

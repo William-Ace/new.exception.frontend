@@ -1,53 +1,56 @@
 import React, { Suspense } from 'react';
-import { IntlProvider } from 'react-intl';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { CssBaseline, ThemeProvider } from '@mui/material';
+import { CssBaseline } from '@mui/material';
 
 import AuthRoute from './components/auth/Route/LogRoute';
 import PrivateRoute from './components/auth/Route/HomeRoute';
-import Loader from './components/StyleLoader';
+import Loader from './components/spinner';
 import { FirebaseProvider } from './firebase';
-import theme from './themes/theme';
-import './assets/sass/index.scss';
+import './styles/sass/index.scss';
 
-const Auth = React.lazy(() => import('./views/auth/Auth'));
-const Home = React.lazy(() => import('./views/app/calendar'));
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+
+import Auth from './pages/auth/Auth';
+import Calendar from './pages/app/calendar';
+
+const client = new ApolloClient({
+  uri: 'http://localhost:1934/graphql/',
+  cache: new InMemoryCache()
+});
 
 function App() {
   return (
-    <IntlProvider locale="en">
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <FirebaseProvider>
-          <BrowserRouter>
-            <Suspense fallback={<Loader />}>
-              <Routes>
-                <Route
-                  path="/"
-                  element={
-                    <AuthRoute>
-                      <Auth />
-                    </AuthRoute>
-                  }
-                />
-                <Route
-                  path="/home"
-                  element={
-                    <PrivateRoute>
-                      <Home />
-                    </PrivateRoute>
-                  }
-                />
-              </Routes>
-            </Suspense>
-          </BrowserRouter>
-          <ToastContainer />
-        </FirebaseProvider>
-      </ThemeProvider>
-    </IntlProvider>
+    <ApolloProvider client={client}>
+      <CssBaseline />
+      <FirebaseProvider>
+        <BrowserRouter>
+          <Suspense fallback={<Loader />}>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <AuthRoute>
+                    <Auth />
+                  </AuthRoute>
+                }
+              />
+              <Route
+                path="/home"
+                element={
+                  <PrivateRoute>
+                    <Calendar />
+                  </PrivateRoute>
+                }
+              />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+        <ToastContainer />
+      </FirebaseProvider>
+    </ApolloProvider>
   );
 }
 

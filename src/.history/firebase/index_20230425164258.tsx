@@ -6,7 +6,7 @@ import 'firebase/compat/auth';
 import { getFirestore, collection, addDoc, getDocs, query, where } from 'firebase/firestore';
 
 import { useMutation } from '@apollo/client';
-import { RegisterUser } from '../graphql/mutation';
+import { RegisterUser } from '../graphql/mutations/mutation';
 
 const FIREBASE_CONFIG = {
   apiKey: 'AIzaSyBviOeCokAXqKJdMhKkLjLL-EJIgXNPfsE',

@@ -82,7 +82,10 @@ const Auth = () => {
                     <Button
                       onClick={signInWithGoogle}
                       variant="contained"
-                      color="primary"
+                      style={{
+                        backgroundColor: '#004080',
+                        color: 'white'
+                      }}
                       startIcon={<Google />}
                       sx={{
                         width: '100%',
@@ -91,25 +94,31 @@ const Auth = () => {
                       SIGN IN WITH GOOGLE
                     </Button>
                     <Button
-                      variant="contained"
-                      color="primary"
-                      startIcon={<LinkedIn />}
-                      sx={{
-                        width: '100%',
-                        mb: 2
-                      }}>
-                      SIGN IN WITH LINKEDIN
-                    </Button>
-                    <Button
                       onClick={signInWithMicrosoft}
                       variant="contained"
-                      color="warning"
+                      style={{
+                        color: 'white',
+                        backgroundColor: '#e02020'
+                      }}
                       startIcon={<Window />}
                       sx={{
                         width: '100%',
                         mb: 2
                       }}>
                       SIGN IN WITH MICROSOFT
+                    </Button>
+                    <Button
+                      variant="contained"
+                      style={{
+                        backgroundColor: '#304080',
+                        color: 'white'
+                      }}
+                      startIcon={<LinkedIn />}
+                      sx={{
+                        width: '100%',
+                        mb: 2
+                      }}>
+                      SIGN IN WITH LINKEDIN
                     </Button>
                     <Divider sx={{ color: 'rgb(102, 102, 102)' }}>or use business email</Divider>
                   </Box>

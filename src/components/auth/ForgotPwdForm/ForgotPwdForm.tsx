@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Box, Button } from '@mui/material';
 import * as yup from 'yup';
 
-import FormInput from '../../Input/FormInput';
+import FormInput from '../../input/form.input';
 
 const formSchema = yup.object().shape({
   email: yup.string().email().required('This field is required')
