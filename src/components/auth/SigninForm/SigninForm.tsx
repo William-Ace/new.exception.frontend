@@ -58,7 +58,8 @@ const SigninForm: React.FC<SigninFormProps> = ({ onForgotPwd }) => {
           type="submit"
           variant="contained"
           onClick={onFormSubmit}
-          style={{ backgroundColor: '#004080', color: 'white' }}>
+          style={{ backgroundColor: '#004080', color: 'white' }}
+        >
           SIGN IN
         </Button>
         <Box className="passRecoveryForm__forgotPassword" onClick={onForgotPwd}>

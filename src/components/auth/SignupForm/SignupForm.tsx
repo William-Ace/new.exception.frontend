@@ -76,7 +76,8 @@ const SignUpForm = () => {
           type="submit"
           variant="contained"
           onClick={onFormSubmit}
-          style={{ backgroundColor: '#004080', color: 'white' }}>
+          style={{ backgroundColor: '#004080', color: 'white' }}
+        >
           SIGN UP
         </Button>
       </Box>
