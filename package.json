@@ -4,10 +4,9 @@
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.7.3",
-    "@bryntum/cra-template-typescript-calendar": "^5.3.3",
+    "@bryntum/calendar": "npm:@bryntum/calendar-trial@^5.3.3",
+    "@bryntum/calendar-react": "^5.3.3",
     "@bryntum/demo-resources": "^1.2.0",
-    "@bryntum/scheduler": "npm:@bryntum/scheduler-trial@^5.3.3",
-    "@bryntum/scheduler-react": "^5.3.3",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@hookform/resolvers": "^2.9.10",
@@ -52,20 +51,18 @@
     "check-types": "tsc --pretty --noEmit",
     "check-lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "check-format": "prettier --check .",
-    "postinstall": "postinstall",
-    "check-all": "npm run format && npm run check-format && npm run check-types && npm run check-lint"
+    "check-all": "npm run format && npm run check-format && npm run check-types && npm run check-lint",
+    "postinstall": "postinstall"
+  },
+  "postinstall": {
+    "node_modules/@bryntum/calendar/*.css": "copy public/themes/",
+    "node_modules/@bryntum/calendar/fonts/*": "copy public/themes/fonts/"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
     ]
-  },
-  "postinstall": {
-    "node_modules/@bryntum/demo-resources/images/users/*": "copy public/users/",
-    "node_modules/@bryntum/demo-resources/images/favicon.png": "copy public/favicon.png",
-    "node_modules/@bryntum/scheduler/*.css": "copy public/themes/",
-    "node_modules/@bryntum/scheduler/fonts/*": "copy public/themes/fonts/"
   },
   "browserslist": {
     "production": [

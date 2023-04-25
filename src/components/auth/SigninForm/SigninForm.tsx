@@ -7,6 +7,8 @@ import * as yup from 'yup';
 
 import FormInput from '../../Input/FormInput';
 
+import { useFirebase } from '../../../firebase';
+
 const formSchema = yup.object().shape({
   email: yup.string().email().required('This field is required'),
   password: yup.string().required('No password provided')
@@ -22,6 +24,7 @@ interface SigninFormProps {
 }
 
 const SigninForm: React.FC<SigninFormProps> = ({ onForgotPwd }) => {
+  const { loginWithCredentials } = useFirebase();
   const { handleSubmit, control, register, getValues } = useForm({
     resolver: yupResolver(formSchema),
     defaultValues: initialValues
@@ -29,6 +32,7 @@ const SigninForm: React.FC<SigninFormProps> = ({ onForgotPwd }) => {
 
   const onFormSubmit = useCallback(() => {
     const { email, password } = getValues();
+    loginWithCredentials(email, password);
   }, []);
 
   return (
@@ -38,17 +42,19 @@ const SigninForm: React.FC<SigninFormProps> = ({ onForgotPwd }) => {
         label="Email"
         type="text"
         variant="standard"
-        {...register('email')}
+        register={register}
+        name="email"
       />
       <FormInput
         control={control}
+        name="password"
         label="Password"
         type="password"
         variant="standard"
-        {...register('password')}
+        register={register}
       />
       <Box className="signInForm__buttons">
-        <Button color="primary" type="submit" variant="contained">
+        <Button color="primary" type="submit" variant="contained" onClick={onFormSubmit}>
           SIGN IN
         </Button>
         <Box className="passRecoveryForm__forgotPassword" onClick={onForgotPwd}>

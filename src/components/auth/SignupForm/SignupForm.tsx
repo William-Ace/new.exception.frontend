@@ -7,6 +7,8 @@ import * as yup from 'yup';
 
 import FormInput from '../../Input/FormInput';
 
+import { useFirebase } from '../../../firebase';
+
 const formSchema = yup.object().shape({
   firstname: yup.string().required('This field is required'),
   lastname: yup.string().required('This field is required'),
@@ -21,15 +23,18 @@ const initialValues = {
   password: ''
 };
 
-const SignupForm = () => {
-  const { handleSubmit, control } = useForm({
+const SignUpForm = () => {
+  const { registerWithCredentials } = useFirebase();
+
+  const { handleSubmit, control, register, getValues } = useForm({
     resolver: yupResolver(formSchema),
     defaultValues: initialValues
   });
 
   const onFormSubmit = useCallback(() => {
-    console.log('Sign up');
-  }, []);
+    const { firstname, lastname, email, password } = getValues();
+    registerWithCredentials(email, password, firstname + ' ' + lastname);
+  }, [getValues, registerWithCredentials]);
 
   return (
     <form onSubmit={handleSubmit(onFormSubmit)} className="signInForm">
@@ -39,6 +44,7 @@ const SignupForm = () => {
         label="First name"
         type="text"
         variant="standard"
+        register={register}
       />
       <FormInput
         control={control}
@@ -46,17 +52,26 @@ const SignupForm = () => {
         label="Last name"
         type="text"
         variant="standard"
+        register={register}
       />
-      <FormInput control={control} name="email" label="Email" type="text" variant="standard" />
+      <FormInput
+        control={control}
+        name="email"
+        label="Email"
+        type="text"
+        variant="standard"
+        register={register}
+      />
       <FormInput
         control={control}
         name="password"
         label="Password"
         type="password"
         variant="standard"
+        register={register}
       />
       <Box className="signInForm__buttons">
-        <Button color="primary" type="submit" variant="contained">
+        <Button color="primary" type="submit" variant="contained" onClick={onFormSubmit}>
           SIGN UP
         </Button>
       </Box>
@@ -64,4 +79,4 @@ const SignupForm = () => {
   );
 };
 
-export default SignupForm;
+export default SignUpForm;

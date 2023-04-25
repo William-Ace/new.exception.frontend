@@ -1,9 +1,8 @@
-import React from 'react';
 import { Controller } from 'react-hook-form';
 
 import TextField from '@mui/material/TextField';
 
-export default function FormInput({ control, name, ...rest }) {
+export default function FormInput({ control, name, register, ...rest }) {
   return (
     <Controller
       name={name}
@@ -22,6 +21,8 @@ export default function FormInput({ control, name, ...rest }) {
             mb: 1,
             height: '50px'
           }}
+          {...register(name)}
+          data-testid={`account-${name}`}
         />
       )}
     />

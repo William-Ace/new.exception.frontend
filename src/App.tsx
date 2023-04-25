@@ -10,7 +10,6 @@ import AuthRoute from './components/auth/Route/LogRoute';
 import PrivateRoute from './components/auth/Route/HomeRoute';
 import Loader from './components/StyleLoader';
 import { FirebaseProvider } from './firebase';
-import { ModalProvider } from './context/modal';
 import theme from './themes/theme';
 import './assets/sass/index.scss';
 
@@ -23,31 +22,29 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <FirebaseProvider>
-          <ModalProvider>
-            <BrowserRouter>
-              <Suspense fallback={<Loader />}>
-                <Routes>
-                  <Route
-                    path="/"
-                    element={
-                      <AuthRoute>
-                        <Auth />
-                      </AuthRoute>
-                    }
-                  />
-                  <Route
-                    path="/home"
-                    element={
-                      <PrivateRoute>
-                        <Home />
-                      </PrivateRoute>
-                    }
-                  />
-                </Routes>
-              </Suspense>
-            </BrowserRouter>
-            <ToastContainer />
-          </ModalProvider>
+          <BrowserRouter>
+            <Suspense fallback={<Loader />}>
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <AuthRoute>
+                      <Auth />
+                    </AuthRoute>
+                  }
+                />
+                <Route
+                  path="/home"
+                  element={
+                    <PrivateRoute>
+                      <Home />
+                    </PrivateRoute>
+                  }
+                />
+              </Routes>
+            </Suspense>
+          </BrowserRouter>
+          <ToastContainer />
         </FirebaseProvider>
       </ThemeProvider>
     </IntlProvider>

@@ -5,7 +5,7 @@ import { Alert, Box, Button, Divider, Typography } from '@mui/material';
 
 import ForgotPwdForm from '../../components/auth/ForgotPwdForm';
 import SigninForm from '../../components/auth/SigninForm';
-import SignupForm from '../../components/auth/SignupForm';
+import SignUpForm from '../../components/auth/SignupForm';
 import { useFirebase } from '../../firebase';
 
 const Auth = () => {
@@ -26,13 +26,12 @@ const Auth = () => {
     <Box
       className="mainBkg"
       style={{
-        backgroundImage: `url(${require('../../assets/images/background.ed92fc21.jpg')})`
-      }}
-    >
+        backgroundImage: `url('./images/background.ed92fc21.jpg')`
+      }}>
       <Box className="contentWrap">
         <Box className="leftWrap">
           <Box className="imgCont">
-            <img src={require('../../assets/images/spiral.53b194f3.svg').default} alt="spiral" />
+            <img src="./images/spiral.53b194f3.svg" alt="spiral" />
           </Box>
           <Box className="textHld">
             <Box className="majorCap">WELCOME TO THE MARKETPLACE</Box>
@@ -47,10 +46,7 @@ const Auth = () => {
         <Box className="rightWrap">
           <Box className="topHld">
             <Box className="actionTitle">
-              <img
-                src={require('../../assets/images/logo.bf7070eb.svg').default}
-                alt="exceptionly logo"
-              />
+              <img src="./images/logo.bf7070eb.svg" alt="exceptionly logo" />
               <Box className="proText">
                 <Typography>
                   {authMode === 'signin'
@@ -71,8 +67,7 @@ const Auth = () => {
                     sx={{
                       mt: 8,
                       mb: 8
-                    }}
-                  >
+                    }}>
                     <Typography variant="body1" gutterBottom>
                       What's Next?
                     </Typography>
@@ -92,8 +87,7 @@ const Auth = () => {
                       sx={{
                         width: '100%',
                         mb: 2
-                      }}
-                    >
+                      }}>
                       SIGN IN WITH GOOGLE
                     </Button>
                     <Button
@@ -103,8 +97,7 @@ const Auth = () => {
                       sx={{
                         width: '100%',
                         mb: 2
-                      }}
-                    >
+                      }}>
                       SIGN IN WITH LINKEDIN
                     </Button>
                     <Button
@@ -115,8 +108,7 @@ const Auth = () => {
                       sx={{
                         width: '100%',
                         mb: 2
-                      }}
-                    >
+                      }}>
                       SIGN IN WITH MICROSOFT
                     </Button>
                     <Divider sx={{ color: 'rgb(102, 102, 102)' }}>or use business email</Divider>
@@ -126,7 +118,7 @@ const Auth = () => {
                     {authMode === 'signin' ? (
                       <SigninForm onForgotPwd={handleClickForgotPwd} />
                     ) : (
-                      <SignupForm />
+                      <SignUpForm />
                     )}
                   </Box>
                 </>

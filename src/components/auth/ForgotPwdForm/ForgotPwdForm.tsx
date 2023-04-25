@@ -16,7 +16,7 @@ const initialValues = {
 };
 
 const ForgotPwdForm = () => {
-  const { handleSubmit, control } = useForm({
+  const { handleSubmit, control, register, getValues } = useForm({
     resolver: yupResolver(formSchema),
     defaultValues: initialValues
   });
@@ -27,7 +27,14 @@ const ForgotPwdForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onFormSubmit)} className="signInForm">
-      <FormInput control={control} name="email" label="Email" type="text" variant="standard" />
+      <FormInput
+        control={control}
+        name="email"
+        label="Email"
+        type="text"
+        variant="standard"
+        register={register}
+      />
       <Box className="signInForm__buttons">
         <Button color="primary" type="submit" variant="contained">
           RECOVER

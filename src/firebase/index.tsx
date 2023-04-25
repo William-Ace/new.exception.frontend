@@ -216,8 +216,7 @@ function FirebaseProvider({ children }: FirebaseProviderPropsType) {
         signInWithGoogle,
         signInWithMicrosoft,
         logoutUserFromFirebase
-      }}
-    >
+      }}>
       {children}
     </FirebaseContext.Provider>
   );

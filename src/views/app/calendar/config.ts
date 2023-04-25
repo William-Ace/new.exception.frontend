@@ -1,47 +1,14 @@
-/**
- * Application configuration
- */
+import { BryntumCalendarProps } from '@bryntum/calendar-react';
 
-import { AppEventModel } from './event.model';
-import { BryntumSchedulerProps } from '@bryntum/scheduler-react';
-
-const schedulerConfig: BryntumSchedulerProps = {
-  resourceImagePath: 'users/',
-
-  startDate: new Date(2018, 1, 7, 8),
-  endDate: new Date(2018, 1, 7, 22),
-
-  viewPreset: 'hourAndDay',
-
+const calendarConfig: BryntumCalendarProps = {
+  date: new Date(2022, 2, 15),
   crudManager: {
-    eventStore: {
-      modelClass: AppEventModel
-    },
     transport: {
       load: {
-        url: 'data/data.json'
+        url: '/data/data.json'
       }
-    },
-    autoLoad: true
-  },
-
-  timeRangesFeature: {
-    narrowThreshold: 10
-  },
-
-  columns: [
-    {
-      type: 'resourceInfo',
-      text: 'Staff',
-      showImage: true,
-      width: 130
-    },
-    {
-      text: 'Type',
-      field: 'role',
-      width: 130
     }
-  ]
+  }
 };
 
-export { schedulerConfig };
+export { calendarConfig };
